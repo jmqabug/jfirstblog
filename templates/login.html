@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    background-color: gray;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
+
+
+</style>
+</head>
+
+
+
+
+
+{% block content %}
+  <h2>Log in to Athletesite.com</h2>
+  {% if form.errors %}
+    <p style="color: red"> Please try again.</p>
+  {% endif %}
+  <br>
+  <form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}" />
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}<br>
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+        {% if field.help_text %}
+          <p><small style="color: white"></small></p>
+        {% endif %}
+      </p>
+    {% endfor %}
+    <button type="submit">Log in</button><br>
+    <br>
+    <pr> Create new account</pr>
+    <br>
+    <a href="{% url 'register' %}">register here</a></br>
+  </form>
+{% endblock %}

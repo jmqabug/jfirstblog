@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    background-color: gray;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
+
+
+ody {margin:0;}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+
+
+</body>
+</style>
+</head>
+
+
+
+
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+  <h2>Welcome, {{ user.username }}!</h2>
+
+
+  <p> here is your page content. Start now </p>
+
+
+{% endblock %}
+
+</body>
+</html>

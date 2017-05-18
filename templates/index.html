@@ -1,51 +1,28 @@
 <html>
-		
-</body>
 
-</html>
     <head>
-   
         <title>{% block head_title %}Welcome to my blog{% endblock %}</title>
-    
-    <body>
-    
-    <center>    <h1>{% block title %}Welcome to my blog{% endblock %}</h1></center>
-        <h2> New user should need to log-in</h2>
-        
-
+    </head>
 
     <body>
-    <h2>User Login</h2>
-    {% if form.has_errors %}
-    <p>Your username and password didn't match. Please try again.</p>
+        <h1>{% block title %}Welcome to my blog{% endblock %}</h1>
+
+        {% if user.username %}
+
+    <p>Welcome {{ user.username }}!Here your page content</p>
+    {% else %}
+
+
+    <p>Welcome anonymous user! You need to login</p><br/>
     {% endif %}
-    <form method="post" action=".">
-    <p><label for="id_username">Username:</label>
-    {{ form.username }}</p>
-    <p><label for="id_password">Password:</label>
-    {{ form.password }}</p>
-    <input type="hidden" name="next" value="/" />
-    <input type="submit" value="login" />
-    {% csrf_token %}
-    </form>
-    </body>
+    
 
-
-        {% block content %}
-
-        {% endblock %}
        
-
-
-
-
-
-
-
-
-
-
+        {% block content %}
+        {% endblock %}
     </body>
+
+    
+    
+  
 </html>
-
-
